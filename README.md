@@ -16,7 +16,7 @@ Librairie header-only (un seul fichier `.h`), compatible PlatformIO et Arduino I
 
 - **PlatformIO** : ajouter dans `platformio.ini` :
   ```ini
-  lib_deps = https://github.com/Fo170/boot_info
+  lib_deps = https://github.com/Fo170/boot_info.git@^1.0.0
   ```
 - **Arduino IDE** : via le Library Manager, ou copier `boot_info.h` dans le dossier du sketch.
 
