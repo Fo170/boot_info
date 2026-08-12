@@ -25,19 +25,6 @@ void printVersion()
   Serial.println(__FILE__);
 }
 
-// BootInfo : fichier source et ligne de l'emplacement d'un arrêt volontaire.
-// __FILE__/__LINE__ sont évalués la MACRO BOOT_HALT au point d'appel.
-// BOOT_HALT(msg) : imprime l'emplacement (fichier.s:ligne) puis bloque.
-// Le watchdog/panique ESP provoque ensuite un reset, et boot_info()
-// (appelé au boot suivant) confirme le motif.
-#define BOOT_HALT(msg) do { \
-  Serial.println("-----------boot_halt-------------"); \
-  Serial.print("At: "); Serial.print(__FILE__); Serial.print(":"); Serial.println(__LINE__); \
-  if(msg){ Serial.print("Reason: "); Serial.println(msg); } \
-  Serial.flush(); \
-  while(1) {} \
-} while(0)
-
 #if defined(ARDUINO_ARCH_ESP8266)
 
 extern "C" {

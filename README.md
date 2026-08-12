@@ -48,29 +48,10 @@ Les messages de sortie sont en **anglais** (usage international).
 
 ## Diagnostic d'un plantage (où ça a fait planter)
 
-`__FILE__` seul ne donne que le fichier compilé (déjà affiché par `printVersion()`).
-Pour connaître l'**emplacement exact** d'un plantage, il faut imprimer `__FILE__`/`__LINE__`
-**au moment du crash**, avec la macro `BOOT_HALT` :
-
-```cpp
-void loop()
-{
-  if (quelqueChoseDeGrave) {
-    BOOT_HALT("situation anormale détectée");   // affiche fichier:ligne puis bloque
-  }
-}
-```
-
-Séquence :
-
-1. `BOOT_HALT(msg)` affiche `At: <fichier>:<ligne>` puis boucle à l'infini.
-   Sur ESP8266/ESP32 le watchdog/panique provoque ensuite une remise à zéro.
-2. Au reboot, `boot_info()` (appelée en `setup()`) confirme le motif (`ESP_RST_TASK_WDT`,
-   `ESP_RST_PANIC`, « Exception », …).
-
-Pour un **vrai** crash (panique imprévue, pas un `BOOT_HALT`), le firmware PlatformIO est compilé
-avec les symboles de debug (`firmware.elf`). Il suffit alors de mapper les adresses affichées par
-`boot_info()` (`epc1/epc2/epc3` sur ESP8266, backtrace ESP32) vers fichier:ligne :
+`__FILE__` ne donne que le fichier compilé (déjà affiché par `printVersion()`), jamais l'emplacement
+d'un crash : un vrai plantage ne passe pas par `__FILE__`. La bonne méthode est de **mapper l'adresse
+du compteur programme** affichée au crash (`epc1/epc2/epc3` sur ESP8266, backtrace ESP32) vers
+fichier:ligne avec l'outil des symboles du firmware PlatformIO (`firmware.elf` compilé avec `-g`) :
 
 ```bash
 xtensa-lx106-elf-addr2line -pfiaC .pio/build/nodemcuv2/firmware.elf 0x<epc1>   # ESP8266
