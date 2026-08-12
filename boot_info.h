@@ -16,13 +16,12 @@
 
 void printVersion() 
 {
-  Serial.println("------printVersion-------");
+  Serial.println("------------------------");
   Serial.print("Compiled: ");
   Serial.print( __DATE__ );
   Serial.print(" - ");
   Serial.println( __TIME__ );
   Serial.println("------------------------");
-  Serial.println(__FILE__);
 }
 
 #if defined(ARDUINO_ARCH_ESP8266)

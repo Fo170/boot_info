@@ -33,7 +33,7 @@ void setup()
   Serial.begin(115200);
   delay(1000);
   boot_info();     // cause du boot / reset
-  printVersion();  // date/heure de compilation + chemin du fichier
+  printVersion();  // date/heure de compilation
 }
 
 void loop()
@@ -42,13 +42,13 @@ void loop()
 ```
 
 - `boot_info()` : dumps la cause de la dernière réinitialisation, plateforme par plateforme.
-- `printVersion()` : date/heure de compilation (`__DATE__`, `__TIME__`) + chemin du source (`__FILE__`).
+- `printVersion()` : date/heure de compilation (`__DATE__`, `__TIME__`).
 
 Les messages de sortie sont en **anglais** (usage international).
 
 ## Diagnostic d'un plantage (où ça a fait planter)
 
-`__FILE__` ne donne que le fichier compilé (déjà affiché par `printVersion()`), jamais l'emplacement
+`__FILE__` ne donne que le fichier compilé, jamais l'emplacement
 d'un crash : un vrai plantage ne passe pas par `__FILE__`. La bonne méthode est de **mapper l'adresse
 du compteur programme** affichée au crash (`epc1/epc2/epc3` sur ESP8266, backtrace ESP32) vers
 fichier:ligne avec l'outil des symboles du firmware PlatformIO (`firmware.elf` compilé avec `-g`) :
