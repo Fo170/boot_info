@@ -1,0 +1,45 @@
+{
+  "name": "boot_info",
+  "version": "1.0.0",
+  "description": "Diagnostic de la cause de boot / réinitialisation sur ESP8266, ESP32, STM32, SAM (Arduino Due) et RP2xxx (Raspberry Pi Pico) via le port série",
+  "keywords": ["esp8266", "esp32", "stm32", "sam", "due", "rp2040", "rp2xxx", "pico", "boot", "reset", "watchdog", "serial", "debug", "diagnostic"],
+  "repository": { "type": "git", "url": "https://github.com/Fo170/boot_info.git" },
+  "authors": [
+    { "name": "Olivier FOURNET", "email": "olivier.fournet@free.fr", "url": "https://github.com/Fo170", "maintainer": true }
+  ],
+  "license": "GPL-3.0-only",
+  "homepage": "https://github.com/Fo170/boot_info",
+  "frameworks": "arduino",
+  "platforms": ["espressif8266", "espressif32", "ststm32", "atmelsam", "raspberrypi"],
+  "headers": "boot_info.h",
+  "examples": [
+    {
+      "name": "ESP8266 : diagnostic de boot",
+      "base": "examples",
+      "files": ["ESP8266_BootInfo/ESP8266_BootInfo.ino"]
+    },
+    {
+      "name": "ESP32 : diagnostic de boot",
+      "base": "examples",
+      "files": ["ESP32_BootInfo/ESP32_BootInfo.ino"]
+    },
+    {
+      "name": "STM32 : diagnostic de boot",
+      "base": "examples",
+      "files": ["STM32_BootInfo/STM32_BootInfo.ino"]
+    },
+    {
+      "name": "Due : diagnostic de boot",
+      "base": "examples",
+      "files": ["Due_BootInfo/Due_BootInfo.ino"]
+    },
+    {
+      "name": "RP2040 : diagnostic de boot",
+      "base": "examples",
+      "files": ["RP2040_BootInfo/RP2040_BootInfo.ino"]
+    }
+  ],
+  "export": {
+    "exclude": [".github", "docs", "tests", ".pio", "*.md", "*.yml", "*.txt", "*.ini"]
+  }
+}
