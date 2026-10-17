@@ -1,3 +1,6 @@
+// Version de la librairie (source UNIQUE — agrégée par liste_lib.h)
+#define __BOOT_INFO_H_VERSION__ "1.0.0"
+
 #ifdef _boot_info_
 
 // boot_info
