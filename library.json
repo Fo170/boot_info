@@ -1,6 +1,6 @@
 {
   "name": "boot_info",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Diagnostic de la cause de boot / réinitialisation sur ESP8266, ESP32, STM32, SAM (Arduino Due) et RP2xxx (Raspberry Pi Pico) via le port série",
   "keywords": ["esp8266", "esp32", "stm32", "sam", "due", "rp2040", "rp2xxx", "pico", "boot", "reset", "watchdog", "serial", "debug", "diagnostic"],
   "repository": { "type": "git", "url": "https://github.com/Fo170/boot_info.git" },

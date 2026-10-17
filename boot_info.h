@@ -1,5 +1,5 @@
 // Version de la librairie (source UNIQUE — agrégée par liste_lib.h)
-#define __BOOT_INFO_H_VERSION__ "1.0.0"
+#define __BOOT_INFO_H_VERSION__ "1.0.1"
 
 #ifdef _boot_info_
 
